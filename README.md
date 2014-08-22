@@ -33,4 +33,4 @@
 [2013-11-08] 更新了微信API最新接收事件推送{已关注事件推送、上报地理位置事件推送}接口
 
 【微信模拟器】
-下载地址：http://pan.baidu.com/s/11NRO4
+下载地址：http://pan.baidu.com/s/1mTIhQ
