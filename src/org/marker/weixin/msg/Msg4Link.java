@@ -36,7 +36,20 @@ public class Msg4Link extends Msg {
 	}
 
 	@Override
-	public void write(Document document) { }
+	public void write(Document document) {
+//		Element root = document.createElement(WXXmlElementName.ROOT);
+//		head.write(root, document);
+//		Element titleElement = document.createElement(WXXmlElementName.TITLE);
+//		titleElement.setTextContent(this.getTitle()); 
+//		Element descriptionElement = document.createElement(WXXmlElementName.DESCRITION);
+//		descriptionElement.setTextContent(this.getDescription()); 
+//		Element urlElement = document.createElement(WXXmlElementName.URL);
+//		urlElement.setTextContent(this.getUrl()); 
+//		root.appendChild(descriptionElement);
+//		root.appendChild(descriptionElement);
+//		root.appendChild(urlElement);
+//		document.appendChild(root);
+	}
 	
 	@Override
 	public void read(Document document) {

@@ -5,7 +5,7 @@ import org.w3c.dom.Document;
 import org.w3c.dom.Element;
 
 /**
- * 音乐消息(只能回复)
+ * 音乐消息
  * @author marker
  * @date 2013-8-25 上午8:54:03
  * @version 1.0
@@ -13,16 +13,16 @@ import org.w3c.dom.Element;
  * @weibo http://t.qq.com/wuweiit
  */
 public class Msg4Music extends Msg{
-	// 标题
+	//标题
 	private String title;
-	// 描述
+	//描述
 	private String description;
-	// 音乐链接
+	//音乐链接
 	private String musicUrl;
-	// 高质量音乐链接，WIFI环境优先使用该链接播放音乐
+	//高质量音乐链接，WIFI环境优先使用该链接播放音乐
 	private String hQMusicUrl;
-	// 缩略图的媒体id，通过上传多媒体文件，得到的id
-	private String thumbMediaId;
+	//位0x0001被标志时，星标刚收到的消息。
+	private String funcFlag;
 	
 	
 	/**
@@ -39,7 +39,9 @@ public class Msg4Music extends Msg{
 	public void write(Document document) {
 		Element root = document.createElement(WXXmlElementName.ROOT);
 		head.write(root, document);
-		Element musicElement = document.createElement(WXXmlElementName.MUSIC); 
+		
+		Element musicElement = document.createElement(WXXmlElementName.MUSIC);
+		
 		Element titleElement = document.createElement(WXXmlElementName.TITLE);
 		titleElement.setTextContent(this.title);
 		Element descriptionElement = document.createElement(WXXmlElementName.DESCRITION);
@@ -48,15 +50,16 @@ public class Msg4Music extends Msg{
 		musicUrlElement.setTextContent(this.musicUrl);
 		Element hQMusicUrlElement = document.createElement(WXXmlElementName.HQ_MUSIC_URL);
 		hQMusicUrlElement.setTextContent(this.hQMusicUrl);
-		Element thumbMediaIdElement = document.createElement(WXXmlElementName.THUMBMEDIAID);
-		thumbMediaIdElement.setTextContent(this.thumbMediaId);
-
+		
 		musicElement.appendChild(titleElement);
 		musicElement.appendChild(descriptionElement);
 		musicElement.appendChild(musicUrlElement);
 		musicElement.appendChild(hQMusicUrlElement);
-		musicElement.appendChild(thumbMediaIdElement);
 		root.appendChild(musicElement);
+		
+		Element funcFlagElement = document.createElement(WXXmlElementName.FUNC_FLAG);
+		funcFlagElement.setTextContent(this.funcFlag);
+		root.appendChild(funcFlagElement);
 		
 		document.appendChild(root);
 	}
@@ -64,7 +67,8 @@ public class Msg4Music extends Msg{
 	
 	// 因为用户不能发送音乐消息给我们，因此没有实现
 	@Override
-	public void read(Document document) { }
+	public void read(Document document) {
+	}
 	
 	
 	
@@ -93,41 +97,11 @@ public class Msg4Music extends Msg{
 	public void setHQMusicUrl(String hQMusicUrl) {
 		this.hQMusicUrl = hQMusicUrl;
 	}
-
-
-
-	/**
-	 * @return the hQMusicUrl
-	 */
-	public String gethQMusicUrl() {
-		return hQMusicUrl;
+	public String getFuncFlag() {
+		return funcFlag;
 	}
-
-
-
-	/**
-	 * @param hQMusicUrl the hQMusicUrl to set
-	 */
-	public void sethQMusicUrl(String hQMusicUrl) {
-		this.hQMusicUrl = hQMusicUrl;
+	public void setFuncFlag(String funcFlag) {
+		this.funcFlag = funcFlag;
 	}
-
-
-
-	/**
-	 * @return the thumbMediaId
-	 */
-	public String getThumbMediaId() {
-		return thumbMediaId;
-	}
-
-
-
-	/**
-	 * @param thumbMediaId the thumbMediaId to set
-	 */
-	public void setThumbMediaId(String thumbMediaId) {
-		this.thumbMediaId = thumbMediaId;
-	}
-	 
+ 
 }

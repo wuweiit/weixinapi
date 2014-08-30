@@ -8,7 +8,7 @@ import org.w3c.dom.Document;
 import org.w3c.dom.Element;
 
 /**
- * 图文消息（只能回复）
+ * 图文消息
  * @author marker
  * @date 2013-8-25 上午8:53:43
  * @version 1.0
@@ -21,7 +21,8 @@ public class Msg4ImageText extends Msg {
 	private String articleCount;
 	// 图文消息的数据
 	private List<Data4Item> items = new ArrayList<Data4Item>(3);
- 
+	// 位0x0001被标志时，星标刚收到的消息。
+	private String funcFlag;
 	
 	
 	/**
@@ -60,7 +61,10 @@ public class Msg4ImageText extends Msg {
 			articlesElement.appendChild(itemElement);
 		}
 		
- 
+		Element funcFlagElement = document.createElement(WXXmlElementName.FUNC_FLAG);
+		funcFlagElement.setTextContent(this.funcFlag);
+		
+		
 
 		root.appendChild(articleCountElement);
 		root.appendChild(articlesElement);
@@ -73,7 +77,16 @@ public class Msg4ImageText extends Msg {
 		// TODO Auto-generated method stub
 		
 	}
-  
+
+	public String getFuncFlag() {
+		return funcFlag;
+	}
+
+	public void setFuncFlag(String funcFlag) {
+		this.funcFlag = funcFlag;
+	}
+
+	
 	
 	public void addItem(Data4Item item){
 		this.items.add(item);

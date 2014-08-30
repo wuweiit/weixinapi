@@ -56,11 +56,7 @@ public abstract class Msg {
 	 * @return 内容
 	 */
 	protected String getElementContent(Document document, String element){
-		if(document.getElementsByTagName(element).getLength() > 0){// 判断是否有节点 
-			return document.getElementsByTagName(element).item(0).getTextContent();
-		}else{
-			return null;
-		}
+		return document.getElementsByTagName(element).item(0).getTextContent();
 	}
 	
 	

@@ -4,7 +4,7 @@ import org.marker.weixin.WXXmlElementName;
 import org.w3c.dom.Document;
 
 /**
- * 地理位置消息（只能接收）
+ * 地理位置消息
  * @author marker
  * @date 2013-8-25 上午8:53:57
  * @version 1.0
@@ -39,9 +39,11 @@ public class Msg4Location extends Msg {
 		this.head = head;
 	}
 	
-	
 	@Override
-	public void write(Document document) { }
+	public void write(Document document) {
+		// TODO Auto-generated method stub
+		
+	}
 	
 	
 	@Override

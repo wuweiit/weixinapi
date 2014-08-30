@@ -2,7 +2,6 @@ package org.marker.weixin.msg;
 
 import org.marker.weixin.WXXmlElementName;
 import org.w3c.dom.Document;
-import org.w3c.dom.Element;
 
 /**
  * 视频消息
@@ -25,8 +24,8 @@ public class Msg4Video extends Msg{
 	 * 开发者调用
 	 * */
 	public Msg4Video() {
-		this.head = new Msg4Head();
-		this.head.setMsgType(Msg.MSG_TYPE_VIDEO);
+//		this.head = new Msg4Head();
+//		this.head.setMsgType(Msg.MSG_TYPE_MUSIC);
 	}
 	
 	
@@ -41,17 +40,7 @@ public class Msg4Video extends Msg{
 
 
 	@Override
-	public void write(Document document) {
-		Element root = document.createElement(WXXmlElementName.ROOT);
-		head.write(root, document);
-		Element videoElement = document.createElement(WXXmlElementName.VIDEO);
-		Element mediaIdElement = document.createElement(WXXmlElementName.MEDIAID);
-		Element thumbMediaIdElement = document.createElement(WXXmlElementName.THUMBMEDIAID);
-		videoElement.appendChild(mediaIdElement);
-		videoElement.appendChild(thumbMediaIdElement);
-		root.appendChild(videoElement); 
-		document.appendChild(root);
-	}
+	public void write(Document document) { }
 	
 	
 	// 因为用户不能发送音乐消息给我们，因此没有实现

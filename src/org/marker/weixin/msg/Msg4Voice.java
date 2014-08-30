@@ -6,7 +6,6 @@ package org.marker.weixin.msg;
 
 import org.marker.weixin.WXXmlElementName;
 import org.w3c.dom.Document;
-import org.w3c.dom.Element;
 
 /**
  * @author marker
@@ -27,14 +26,6 @@ public class Msg4Voice extends Msg{
 	private String msgId;
 	
 	
-	/**
-	 * 默认构造
-	 */
-	public Msg4Voice() {
-		this.head = new Msg4Head();
-		this.head.setMsgType(Msg.MSG_TYPE_VOICE);
-	}
-	
 	
 	public Msg4Voice(Msg4Head head){
 		this.head = head;
@@ -42,15 +33,7 @@ public class Msg4Voice extends Msg{
 	
 	
 	@Override
-	public void write(Document document) {
-		Element root = document.createElement(WXXmlElementName.ROOT);
-		head.write(root, document);
-		Element voiceElement = document.createElement(WXXmlElementName.VOICE);
-		Element mediaIdElement = document.createElement(WXXmlElementName.MEDIAID);
-		voiceElement.appendChild(mediaIdElement);
-		root.appendChild(voiceElement); 
-		document.appendChild(root); 
-	}
+	public void write(Document document) { }
 
 	
 	@Override

@@ -17,9 +17,10 @@ public class Msg4Text extends Msg {
 
 	// 文本消息内容
 	private String content;
+	//位0x0001被标志时，星标刚收到的消息。
+	private String funcFlag;
 	// 消息id，64位整型
 	private String msgId;
-	
 	
 	/**
 	 * 默认构造
@@ -27,7 +28,7 @@ public class Msg4Text extends Msg {
 	 * */
 	public Msg4Text() {
 		this.head = new Msg4Head();
-		this.head.setMsgType(Msg.MSG_TYPE_TEXT);// 设置消息类型
+		this.head.setMsgType(Msg.MSG_TYPE_TEXT);//设置消息类型
 	}
 
 
@@ -38,18 +39,19 @@ public class Msg4Text extends Msg {
 		this.head = head;
 	}
 
-	
 	@Override
 	public void write(Document document) {
 		Element root = document.createElement(WXXmlElementName.ROOT);
 		head.write(root, document);
 		Element contentElement = document.createElement(WXXmlElementName.CONTENT);
-		contentElement.setTextContent(this.content); 
-		root.appendChild(contentElement); 
+		contentElement.setTextContent(this.content);
+		Element funcFlagElement = document.createElement(WXXmlElementName.FUNC_FLAG);
+		funcFlagElement.setTextContent(this.funcFlag);
+		root.appendChild(contentElement);
+		root.appendChild(funcFlagElement);
 		document.appendChild(root);
 	}
 
-	
 	@Override
 	public void read(Document document) {
 		this.content = document.getElementsByTagName(WXXmlElementName.CONTENT).item(0).getTextContent();
@@ -76,5 +78,11 @@ public class Msg4Text extends Msg {
 	}
  
 
- 
+	public String getFuncFlag() {
+		return funcFlag;
+	}
+
+	public void setFuncFlag(String funcFlag) {
+		this.funcFlag = funcFlag;
+	}
 }

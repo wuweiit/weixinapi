@@ -67,13 +67,7 @@ public interface WXXmlElementName {
 	String RECOGNITION = "Recognition";
 	
 	// 视频缩略图
-	String THUMBMEDIAID = "ThumbMediaId";
-	
-	
-	String IMAGE = "Image";
-	
-	String VOICE = "Voice";
-	String VIDEO = "Video";
+	String THUMBMEDIAID = "thumbMediaId";
 	
 	
 }

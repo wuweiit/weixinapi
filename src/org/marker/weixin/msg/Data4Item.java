@@ -14,10 +14,13 @@ public class Data4Item {
 
 	// 图文消息标题
 	private String title;	 
+	
 	// 图文消息描述
 	private String description;	 
+	
 	// 图片链接，支持JPG、PNG格式，较好的效果为大图640*320，小图80*80。
 	private String picUrl;	 
+	
 	// 点击图文消息跳转链接
 	private String url;
 	

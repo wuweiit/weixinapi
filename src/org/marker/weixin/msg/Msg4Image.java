@@ -14,13 +14,14 @@ import org.w3c.dom.Element;
  */
 public class Msg4Image extends Msg{
 
-	// 图片链接
+	//图片链接
 	private String picUrl;
-	// 消息id，64位整型
-	private String msgId; 
+	//消息id，64位整型
+	private String msgId;
+	//位0x0001被标志时，星标刚收到的消息。
+	private String funcFlag;
 	// 图片消息媒体id
 	private String mediaId;
-	
 	
 	/**
 	 * 开发者调用
@@ -43,10 +44,12 @@ public class Msg4Image extends Msg{
 	public void write(Document document) {
 		Element root = document.createElement(WXXmlElementName.ROOT);
 		head.write(root, document);
-		Element imageElement = document.createElement(WXXmlElementName.IMAGE); 
-		Element mediaIdElement = document.createElement(WXXmlElementName.MEDIAID);
-		imageElement.appendChild(mediaIdElement);
-		root.appendChild(imageElement);
+		Element picUrlElement = document.createElement(WXXmlElementName.PIC_URL);
+		picUrlElement.setTextContent(this.picUrl);
+		Element funcFlagElement = document.createElement(WXXmlElementName.FUNC_FLAG);
+		funcFlagElement.setTextContent(this.funcFlag);
+		root.appendChild(picUrlElement);
+		root.appendChild(funcFlagElement);
 		document.appendChild(root);
 	}
 	
@@ -54,8 +57,8 @@ public class Msg4Image extends Msg{
 	@Override
 	public void read(Document document) {
 		this.picUrl = document.getElementsByTagName(WXXmlElementName.PIC_URL).item(0).getTextContent();
-		this.mediaId = getElementContent(document, WXXmlElementName.MEDIAID);
 		this.msgId   = document.getElementsByTagName(WXXmlElementName.MSG_ID).item(0).getTextContent();
+		this.mediaId = getElementContent(document, WXXmlElementName.MEDIAID);
 	}
 
 
@@ -77,8 +80,18 @@ public class Msg4Image extends Msg{
 	public void setMsgId(String msgId) {
 		this.msgId = msgId;
 	}
-	
-	
+
+
+	public String getFuncFlag() {
+		return funcFlag;
+	}
+
+
+	public void setFuncFlag(String funcFlag) {
+		this.funcFlag = funcFlag;
+	}
+
+
 	/**
 	 * @return the mediaId
 	 */
