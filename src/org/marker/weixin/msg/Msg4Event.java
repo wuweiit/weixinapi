@@ -19,7 +19,7 @@ public class Msg4Event extends Msg {
 	// 自定义菜单点击事件
 	
 	public static final String CLICK = "CLICK";
-	public static final String SCAN = "scan";// 用户已关注时的事件推送
+	public static final String SCAN = "SCAN";// 用户已关注时的事件推送
 	public static final String LOCATION = "LOCATION";// 上报地理位置事件
 	
 	// 事件类型subscribe(订阅)、unsubscribe(取消订阅)、CLICK(自定义菜单点击事件)
