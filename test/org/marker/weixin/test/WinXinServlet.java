@@ -29,8 +29,8 @@ import org.marker.weixin.msg.Msg4Voice;
  * 注意：官方文档限制使用80端口哦！
  * 
  * @author marker
- * @blog www.yl-blog.com
- * @weibo http://t.qq.com/wuweiit
+ * 个人博客： www.yl-blog.com
+ * 微博： http://t.qq.com/wuweiit
  */
 public class WinXinServlet extends HttpServlet {
 	private static final long serialVersionUID = 1L;

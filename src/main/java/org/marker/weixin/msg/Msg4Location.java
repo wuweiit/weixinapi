@@ -6,10 +6,10 @@ import org.w3c.dom.Document;
 /**
  * 地理位置消息
  * @author marker
- * @date 2013-8-25 上午8:53:57
+ * 时间： 2013-8-25 上午8:53:57
  * @version 1.0
- * @blog www.yl-blog.com
- * @weibo http://t.qq.com/wuweiit
+ * 个人博客： www.yl-blog.com
+ * 微博： http://t.qq.com/wuweiit
  */
 public class Msg4Location extends Msg {
 	// 地理位置纬度
@@ -34,6 +34,7 @@ public class Msg4Location extends Msg {
 	
 	/**
 	 * 程序内部调用
+	 * @param head 消息头
 	 * */
 	public Msg4Location(Msg4Head head) {
 		this.head = head;

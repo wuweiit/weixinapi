@@ -21,10 +21,10 @@ import javax.net.ssl.HttpsURLConnection;
 
 /**
  * @author marker
- * @date 2013-11-17 下午6:06:19
+ * 时间： 2013-11-17 下午6:06:19
  * @version 1.0
- * @blog www.yl-blog.com
- * @weibo http://t.qq.com/wuweiit
+ * 个人博客： www.yl-blog.com
+ * 微博： http://t.qq.com/wuweiit
  */
 public class menuTest {
 

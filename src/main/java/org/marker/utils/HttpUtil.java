@@ -24,7 +24,7 @@ import javax.net.ssl.X509TrustManager;
  * 提供get和post两种请求静态方法
  * 
  * @author marker
- * @date 2014年8月30日
+ * 时间： 2014年8月30日
  * @version 1.0
  */
 public class HttpUtil {

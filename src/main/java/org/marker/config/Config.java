@@ -4,7 +4,7 @@ package org.marker.config;
 /**
  * 配置文件
  * @author marker
- * @date 2014年8月30日
+ * 时间： 2014年8月30日
  * @version 1.0
  */
 public interface Config {

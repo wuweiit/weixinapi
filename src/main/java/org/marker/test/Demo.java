@@ -10,7 +10,6 @@ import org.marker.weixin.DefaultSession;
 import org.marker.weixin.HandleMessageAdapter;
 import org.marker.weixin.HandleMessageListener;
 import org.marker.weixin.msg.Data4Item;
-import org.marker.weixin.msg.Msg;
 import org.marker.weixin.msg.Msg4Event;
 import org.marker.weixin.msg.Msg4Image;
 import org.marker.weixin.msg.Msg4ImageText;
@@ -29,8 +28,8 @@ public class Demo {
 
 
 	/**
-	 *
-	 * @param args
+	 * 主函数
+	 * @param args 参数
 	 * @throws FileNotFoundException  FileNotFoundException
 	 * @throws InterruptedException InterruptedException
 	 */

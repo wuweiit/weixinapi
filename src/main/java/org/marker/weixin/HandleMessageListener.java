@@ -16,50 +16,50 @@ public interface HandleMessageListener {
 
 	/**
 	 * 收到文本消息
-	 * @param msg
+	 * @param msg 消息
 	 */
-	public abstract void onTextMsg(Msg4Text msg);
+ 	void onTextMsg(Msg4Text msg);
 	
 	/**
 	 * 收到图片消息
-	 * @param msg
+	 * @param msg 消息
 	 */
-	public abstract void onImageMsg(Msg4Image msg);
+	void onImageMsg(Msg4Image msg);
 	
 	/**
 	 * 收到事件推送消息
-	 * @param msg
+	 * @param msg 消息
 	 */
-	public abstract void onEventMsg(Msg4Event msg);
+	void onEventMsg(Msg4Event msg);
 	
 	/**
 	 * 收到链接消息
-	 * @param msg
+	 * @param msg 消息
 	 */
-	public abstract void onLinkMsg(Msg4Link msg);
+	void onLinkMsg(Msg4Link msg);
 	
 	/**
 	 * 收到地理位置消息
-	 * @param msg
+	 * @param msg 消息
 	 */
-	public abstract void onLocationMsg(Msg4Location msg);
+	void onLocationMsg(Msg4Location msg);
 	
 	/**
 	 * 语音识别消息
-	 * @param msg
+	 * @param msg 消息
 	 */
-	public abstract void onVoiceMsg(Msg4Voice msg);
+	void onVoiceMsg(Msg4Voice msg);
 	
 	/**
 	 * 错误消息
-	 * @param errorCode
+	 * @param errorCode 错误码
 	 */
-	public abstract void onErrorMsg(int errorCode);
+	void onErrorMsg(int errorCode);
 
 	/**
 	 * 视频消息
-	 * @param msg
+	 * @param msg 消息
 	 */
-	public abstract void onVideoMsg(Msg4Video msg);
+	void onVideoMsg(Msg4Video msg);
 
 }

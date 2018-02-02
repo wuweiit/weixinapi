@@ -7,8 +7,8 @@ import org.w3c.dom.Document;
  * 
  * @author marker
  * @version 1.0
- * @blog www.yl-blog.com
- * @weibo http://t.qq.com/wuweiit
+ * 个人博客： www.yl-blog.com
+ * 微博： http://t.qq.com/wuweiit
  * */
 public abstract class Msg {
 
@@ -36,14 +36,14 @@ public abstract class Msg {
 
 	/**
 	 * 写入消息内容
-	 * @param document
+	 * @param document 文档
 	 */
 	public abstract void write(Document document);
 
 	
 	/**
 	 * 读取消息内容
-	 * @param document
+	 * @param document 文档
 	 */
 	public abstract void read(Document document);
 

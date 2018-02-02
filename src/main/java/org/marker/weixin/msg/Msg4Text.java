@@ -8,10 +8,10 @@ import org.w3c.dom.Element;
 /**
  * 文本消息
  * @author marker
- * @date 2013-8-25 上午8:54:11
+ * 时间： 2013-8-25 上午8:54:11
  * @version 1.0
- * @blog www.yl-blog.com
- * @weibo http://t.qq.com/wuweiit
+ * 个人博客： www.yl-blog.com
+ * 微博： http://t.qq.com/wuweiit
  */
 public class Msg4Text extends Msg {
 
@@ -34,6 +34,7 @@ public class Msg4Text extends Msg {
 
 	/**
 	 * 此构造由程序内部接收微信服务器消息调用
+	 * @param head 消息头
 	 * */
 	public Msg4Text(Msg4Head head) {
 		this.head = head;

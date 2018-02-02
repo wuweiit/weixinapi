@@ -5,8 +5,8 @@ package org.marker.weixin;
  * 微信XML节点名称
  * (可能微信的消息格式更改，故采用接口配置形式来处理，以简便应万变)
  * @author marker
- * @blog www.yl-blog.com
- * @weibo http://t.qq.com/wuweiit
+ * 个人博客： www.yl-blog.com
+ * 微博： http://t.qq.com/wuweiit
  * */
 public interface WXXmlElementName {
 

@@ -29,7 +29,7 @@ public class Msg4Link extends Msg {
 	
 	/**
 	 * 推送来的消息采用此构造
-	 * @param head
+	 * @param head 消息头
 	 */
 	public Msg4Link(Msg4Head head) {
 		this.head = head; 

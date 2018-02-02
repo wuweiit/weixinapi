@@ -6,10 +6,10 @@ import org.w3c.dom.Document;
 /**
  * 视频消息
  * @author marker
- * @date 2013-8-25 上午8:54:03
+ * 时间： 2013-8-25 上午8:54:03
  * @version 1.0
- * @blog www.yl-blog.com
- * @weibo http://t.qq.com/wuweiit
+ * 个人博客： www.yl-blog.com
+ * 微博： http://t.qq.com/wuweiit
  */
 public class Msg4Video extends Msg{
 	// 视频消息媒体id，可以调用多媒体文件下载接口拉取数据。
@@ -31,7 +31,8 @@ public class Msg4Video extends Msg{
 	
 	
 	/**
-	 * @param head
+	 * 构造
+	 * @param head 消息头
 	 */
 	public Msg4Video(Msg4Head head) {
 		this.head = head;

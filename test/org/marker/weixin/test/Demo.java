@@ -26,7 +26,13 @@ import org.marker.weixin.msg.Msg4Voice;
  * */
 public class Demo {
 
-	
+
+	/**
+	 * 主函数
+	 * @param args 参数
+	 * @throws FileNotFoundException FileNotFoundException
+	 * @throws InterruptedException InterruptedException
+	 */
 	public static void main(String[] args) throws FileNotFoundException, InterruptedException {
 		while(true){
 		//这里要说明下下：a.txt是微信的xml消息格式文件

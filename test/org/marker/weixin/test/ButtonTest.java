@@ -11,7 +11,7 @@ import com.alibaba.fastjson.JSON;
 /**
  * 微信菜单测试代码
  * @author marker
- * @date 2014年8月30日
+ * 时间： 2014年8月30日
  * @version 1.0
  */
 public class ButtonTest {

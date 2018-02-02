@@ -10,10 +10,10 @@ import org.w3c.dom.Element;
 /**
  * 图文消息
  * @author marker
- * @date 2013-8-25 上午8:53:43
+ * 时间： 2013-8-25 上午8:53:43
  * @version 1.0
- * @blog www.yl-blog.com
- * @weibo http://t.qq.com/wuweiit
+ * 个人博客： www.yl-blog.com
+ * 微博： http://t.qq.com/wuweiit
  */
 public class Msg4ImageText extends Msg {
 
