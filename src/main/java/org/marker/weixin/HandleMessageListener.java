@@ -52,7 +52,7 @@ public interface HandleMessageListener {
 	
 	/**
 	 * 错误消息
-	 * @param msg
+	 * @param errorCode
 	 */
 	public abstract void onErrorMsg(int errorCode);
 
