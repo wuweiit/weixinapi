@@ -3,7 +3,23 @@
 
 微信API接口
 
+### 开发者
 
+作者： marker
+
+邮箱：admin@wuweibi.com
+
+博客：http://www.yl-blog.com
+
+### Maven 坐标 
+```
+<dependency>
+   <groupId>com.wuweibi</groupId>
+    <artifactId>weixinapi</artifactId>
+    <version>0.0.1</version>
+</dependency>
+```
+### 项目介绍
 
 微信公众平台 相信大家也不陌生，官方网站提供了一个简单的php程序Demo
 因为微信平台采用HTTP方式承载微信的协议，而且不是双向通讯，也就是说只能由微信服务器主动请求我们的服务器。其实当你使用我开发的weixinapi包，你不用关心那么多的，呵呵。
@@ -51,12 +67,7 @@
 [2013-11-08] 添加了10月29日微信官方API中的语音识别消息
 
 [2013-11-08] 更新了微信API最新接收事件推送{已关注事件推送、上报地理位置事件推送}接口
-
-【微信模拟器】
-链接:http://pan.baidu.com/s/1eQlCgyI 密码:2kp4
-[加密的原因是因为百度的政策]
-
-
+ 
 
 代码例子（在开源中国发布的）：
 

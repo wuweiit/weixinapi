@@ -27,10 +27,16 @@ import org.marker.weixin.msg.Msg4Voice;
  * */
 public class Demo {
 
-	
+
+	/**
+	 *
+	 * @param args
+	 * @throws FileNotFoundException  FileNotFoundException
+	 * @throws InterruptedException InterruptedException
+	 */
 	public static void main(String[] args) throws FileNotFoundException, InterruptedException {
-		while(true){
-		//这里要说明下下：a.txt是微信的xml消息格式文件
+		while (true) {
+		// 这里要说明下下：a.txt是微信的xml消息格式文件
 		InputStream is  = new FileInputStream("c://a.txt");
 		OutputStream os = new FileOutputStream("d://a.txt"); 
 		
@@ -81,12 +87,12 @@ public class Demo {
 	 
 
 		
-		//2. 使用HandleMessageAdapter适配器添加监听器（推荐使用此方案）
+		// 2. 使用HandleMessageAdapter适配器添加监听器（推荐使用此方案）
 		session.addOnHandleMessageListener(new HandleMessageAdapter(){
 			@Override
 			public void onTextMsg(Msg4Text msg) {
 				System.out.println("收到消息："+msg.getContent());
-//				//回复一条消息
+ 			// 回复一条消息
 //				Msg4Text reMsg = new Msg4Text();
 //				reMsg.setFromUserName(msg.getToUserName());
 //				reMsg.setToUserName(msg.getFromUserName());
