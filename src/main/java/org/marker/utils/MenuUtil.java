@@ -39,9 +39,9 @@ public class MenuUtil {
      * 获取access_token
      *
      * @return String
-     * @throws WeixinException
+     * @throws WeixinException WeixinException
      */
-    private static String getAccessToken() throws WeixinException {
+    public static String getAccessToken() throws WeixinException {
         if (null != access_token) { // 已经获取了access_token
             long currentTime = System.currentTimeMillis();
             if ((currentTime - getTime) < 7200000) { // 过期了  | access_token有效期为7200秒
@@ -55,8 +55,8 @@ public class MenuUtil {
         String json = HttpUtil.sendHttpsGET(url);
         getTime = System.currentTimeMillis();
         JSONObject obj = JSON.parseObject(json);
-        String access_token = obj.getString("access_token");
-        if (null == access_token) {// 错误
+        access_token = obj.getString("access_token");
+        if (null == access_token) { // 错误
             throw new WeixinException(json);
         }
         return access_token;

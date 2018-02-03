@@ -1,4 +1,4 @@
-package org.marker.weixin.test;
+package test;
  
 import org.marker.utils.MenuUtil;
 import org.marker.weixin.exception.WeixinException;

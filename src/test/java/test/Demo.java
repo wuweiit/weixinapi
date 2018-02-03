@@ -1,4 +1,4 @@
-package org.marker.weixin.test;
+package test;
 
 import java.io.FileInputStream;
 import java.io.FileNotFoundException;

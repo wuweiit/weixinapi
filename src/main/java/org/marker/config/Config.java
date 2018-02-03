@@ -7,15 +7,15 @@ package org.marker.config;
  * 时间： 2014年8月30日
  * @version 1.0
  */
-public interface Config {
+public class Config {
 
 	// 赋权类型 
-	String grant_type = "client_credential";
+	public static String grant_type = "client_credential";
 	
 	// 修改为开发者申请的appid
-	String APPID      = "wxb77ebe16b2abdd83";
+	public static String APPID      = "wxb77ebe16b2abdd83";
 	
 	// 修改为开发者申请的secret密钥
-	String SECRET     = "ca3ef339ee50485541b63151f0b8848a";
+	public static String SECRET     = "ca3ef339ee50485541b63151f0b8848a";
 	
 }
