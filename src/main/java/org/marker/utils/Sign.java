@@ -2,6 +2,7 @@ package org.marker.utils;
 
 import com.alibaba.fastjson.JSON;
 import com.alibaba.fastjson.JSONObject;
+import org.marker.config.Config;
 
 import java.util.UUID;
 import java.util.Map;
@@ -79,6 +80,7 @@ public final class Sign {
         ret.put("nonceStr", nonceStr);
         ret.put("timestamp", timestamp);
         ret.put("signature", signature);
+        ret.put("appId", Config.APPID);
 
         return new JSONObject(ret);
     }
