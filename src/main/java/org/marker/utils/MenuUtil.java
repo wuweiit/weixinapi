@@ -50,7 +50,7 @@ public class MenuUtil {
         }
 
         // 从服务端从新获取access_token
-        String url = URL_ACCESSTOKEN + "?" + "grant_type=" + Config.grant_type + "&appid=" + Config.APPID + "&secret=" + Config.SECRET;
+        String url = URL_ACCESSTOKEN + "?" + "grant_type=client_credential&appid=" + Config.APPID + "&secret=" + Config.SECRET;
 
         String json = HttpUtil.sendHttpsGET(url);
         getTime = System.currentTimeMillis();

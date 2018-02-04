@@ -8,6 +8,7 @@ import com.alibaba.fastjson.JSONObject;
 import org.marker.config.Config;
 import org.marker.utils.HttpUtil;
 import org.marker.weixin.exception.WeixinException;
+import org.marker.weixin.web.domain.UserInfo;
 import org.marker.weixin.web.domain.WebAccessToken;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
@@ -34,6 +35,11 @@ public final class AccessTokenUtils {
      * 当ACCESSTOKEN 失效时调用此接口
      */
     public static final String URL_REFRESH_TOKEN = "https://api.weixin.qq.com/sns/oauth2/refresh_token";
+
+    /**
+     * 用户信息
+     */
+    public static final String URL_USER_INFO = "https://api.weixin.qq.com/sns/userinfo";
 
 
 
@@ -110,6 +116,21 @@ public final class AccessTokenUtils {
         return accessToken;
     }
 
+
+    /**
+     * 获取用户信息
+     *
+     * @param accessToken token
+     * @param openid openid
+     * @param lang  zh_CN 简体，zh_TW 繁体，en 英语
+     * @return
+     */
+    public static UserInfo getUserInfo(String accessToken, String openid, String lang) {
+        String url = URL_USER_INFO + "?access_token=" + accessToken + "&openid=" + openid + "&lang=" + lang;
+        String json = HttpUtil.sendHttpsGET(url);
+        getTime = System.currentTimeMillis();
+        return JSON.parseObject(json, UserInfo.class);
+    }
 
 
 
