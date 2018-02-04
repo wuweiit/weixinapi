@@ -4,7 +4,6 @@ package org.marker.weixin.web;
  */
 
 import com.alibaba.fastjson.JSON;
-import com.alibaba.fastjson.JSONObject;
 import org.marker.config.Config;
 import org.marker.utils.HttpUtil;
 import org.marker.weixin.exception.WeixinException;
@@ -17,6 +16,8 @@ import org.slf4j.LoggerFactory;
  *
  * Web能力获取的AccessToken
  * （目前的实现是针对单节点的，需要集群部署考虑使用redis缓存token）
+ *
+ * OAuth2.0
  *
  * @author marker
  *  2018-02-04 上午10:44
@@ -130,6 +131,17 @@ public final class AccessTokenUtils {
         String json = HttpUtil.sendHttpsGET(url);
         getTime = System.currentTimeMillis();
         return JSON.parseObject(json, UserInfo.class);
+    }
+
+    /**
+     * 获取用户信息
+     *
+     * @param accessToken token
+     * @param openid openid
+     * @return
+     */
+    public static UserInfo getUserInfo(String accessToken, String openid) {
+        return getUserInfo(accessToken, openid, "zh_CN");
     }
 
 

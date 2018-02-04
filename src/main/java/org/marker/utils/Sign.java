@@ -3,6 +3,8 @@ package org.marker.utils;
 import com.alibaba.fastjson.JSON;
 import com.alibaba.fastjson.JSONObject;
 import org.marker.config.Config;
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
 
 import java.util.UUID;
 import java.util.Map;
@@ -13,17 +15,24 @@ import java.security.NoSuchAlgorithmException;
 import java.io.UnsupportedEncodingException;
 
 /**
+ * 微信签名
  *
  * @author marker
- *
  */
 public final class Sign {
+    /**
+     * 日志
+     */
+    private static Logger logger = LoggerFactory.getLogger(Sign.class);
 
-    private Sign(){ }
+    /**
+     * 构造
+     */
+    private Sign() {
+    }
 
 
     /**
-     *
      * @param args 参数
      */
     public static void main(String[] args) {
@@ -32,20 +41,23 @@ public final class Sign {
 
         // 注意 URL 一定要动态获取，不能 hardcode
         String url = "http://example.com";
-        Map<String, String> ret = (Map<String, String>) sign(jsapiTicket, url);
+        JSONObject ret = sign(jsapiTicket, url);
         for (Map.Entry entry : ret.entrySet()) {
             System.out.println(entry.getKey() + ", " + entry.getValue());
         }
-    };
+    }
+
+    ;
 
 
     /**
      * 签名
+     *
      * @param jsapiTicket ticket
-     * @param url url url地址
+     * @param url         url url地址
      * @return
      */
-    public static JSON sign(String jsapiTicket, String url) {
+    public static JSONObject sign(String jsapiTicket, String url) {
         Map<String, Object> ret = new HashMap<String, Object>();
         String nonceStr = createNonceStr();
         String timestamp = createTimestamp();
@@ -54,25 +66,20 @@ public final class Sign {
 
         //注意这里参数名必须全部小写，且必须有序
         string1 = "jsapi_ticket=" + jsapiTicket +
-                  "&noncestr=" + nonceStr +
-                  "&timestamp=" + timestamp +
-                  "&url=" + url;
-        System.out.println(string1);
+                "&noncestr=" + nonceStr +
+                "&timestamp=" + timestamp +
+                "&url=" + url;
+        logger.debug(string1);
 
-        try
-        {
+        try {
             MessageDigest crypt = MessageDigest.getInstance("SHA-1");
             crypt.reset();
             crypt.update(string1.getBytes("UTF-8"));
             signature = byteToHex(crypt.digest());
-        }
-        catch (NoSuchAlgorithmException e)
-        {
-            e.printStackTrace();
-        }
-        catch (UnsupportedEncodingException e)
-        {
-            e.printStackTrace();
+        } catch (NoSuchAlgorithmException e) {
+            logger.error("", e);
+        } catch (UnsupportedEncodingException e) {
+            logger.error("", e);
         }
 
         ret.put("url", url);
@@ -88,13 +95,13 @@ public final class Sign {
 
     /**
      * 转Hex
+     *
      * @param hash hash
      * @return
      */
     private static String byteToHex(final byte[] hash) {
         Formatter formatter = new Formatter();
-        for (byte b : hash)
-        {
+        for (byte b : hash) {
             formatter.format("%02x", b);
         }
         String result = formatter.toString();
@@ -105,6 +112,7 @@ public final class Sign {
 
     /**
      * 创建随机字符串
+     *
      * @return
      */
     private static String createNonceStr() {
@@ -114,6 +122,7 @@ public final class Sign {
 
     /**
      * 创建TimeStamp
+     *
      * @return
      */
     private static String createTimestamp() {
