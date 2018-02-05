@@ -1,5 +1,9 @@
 package org.marker.utils;
 
+import org.marker.weixin.api.AccessTokenApiUtils;
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
+
 import java.io.BufferedReader;
 import java.io.IOException;
 import java.io.InputStreamReader;
@@ -28,9 +32,15 @@ import javax.net.ssl.X509TrustManager;
  * @version 1.0
  */
 public class HttpUtil {
-	
-	
-	private static TrustManager myX509TrustManager = new X509TrustManager() {
+
+    /** 日志 */
+    private static Logger logger = LoggerFactory.getLogger(HttpUtil.class);
+
+
+    /**
+     * TrustManager
+     */
+    private static TrustManager myX509TrustManager = new X509TrustManager() {
 
 		public void checkClientTrusted(X509Certificate[] arg0, String arg1)
 				throws CertificateException { 
@@ -48,21 +58,20 @@ public class HttpUtil {
 
 	};
 
-	
-	
-	
-	
-	
-	
-	
-	
+
+	/**
+	 * 发送post请求
+	 * @param url url地址
+	 * @param data 数据
+	 * @return
+	 */
 	public static String sendHttpsPOST(String url, String data) {
 		String result = null;
 
 		try {
 			// 设置SSLContext
 			SSLContext sslcontext = SSLContext.getInstance("TLS");
-			sslcontext.init(null, new TrustManager[] { myX509TrustManager },
+			sslcontext.init(null, new TrustManager[] { myX509TrustManager},
 					null);
 
 			// 打开连接
@@ -100,22 +109,26 @@ public class HttpUtil {
 				}
 			}
 		} catch (KeyManagementException e) {
-			e.printStackTrace();
+            logger.error("", e);
 		} catch (NoSuchAlgorithmException e) {
-			e.printStackTrace();
+            logger.error("", e);
 		} catch (MalformedURLException e) {
-			e.printStackTrace();
+            logger.error("", e);
 		} catch (ProtocolException e) {
-			e.printStackTrace();
+            logger.error("", e);
 		} catch (IOException e) {
-			e.printStackTrace();
+            logger.error("", e);
 		}
 
 		return result;
 	}
-	
-	
-	
+
+
+	/**
+	 * 发送get请求
+	 * @param url url地址
+	 * @return
+	 */
 	public static String sendHttpsGET(String url) {
 		String result = null;
 
@@ -155,15 +168,15 @@ public class HttpUtil {
 				}
 			}
 		} catch (KeyManagementException e) {
-			e.printStackTrace();
+            logger.error("", e);
 		} catch (NoSuchAlgorithmException e) {
-			e.printStackTrace();
+            logger.error("", e);
 		} catch (MalformedURLException e) {
-			e.printStackTrace();
+            logger.error("", e);
 		} catch (ProtocolException e) {
-			e.printStackTrace();
+            logger.error("", e);
 		} catch (IOException e) {
-			e.printStackTrace();
+            logger.error("", e);
 		}
 
 		return result;

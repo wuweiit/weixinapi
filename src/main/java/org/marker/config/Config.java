@@ -3,6 +3,9 @@ package org.marker.config;
 
 /**
  * 配置文件
+ *
+ * 全局静态配置
+ *
  * @author marker
  * 时间： 2014年8月30日
  * @version 1.0
