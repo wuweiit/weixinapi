@@ -32,6 +32,11 @@ public abstract class Msg {
 	public static final String MSG_TYPE_VIDEO = "video";
 	/** 消息头 */
 	protected Msg4Head head;
+
+	/**
+	 * 错误消息
+	 */
+	public static final int MSG_ERROR = -1;
 	
 
 	/**

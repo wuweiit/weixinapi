@@ -2,7 +2,8 @@ package org.marker.weixin.msg;
  
  
 
-import java.util.Date; 
+import java.text.SimpleDateFormat;
+import java.util.Date;
 import org.marker.weixin.Session;
 import org.marker.weixin.WXXmlElementName;
 import org.w3c.dom.Document;
@@ -15,13 +16,13 @@ import org.w3c.dom.Element;
  * @version 1.0
  * */
 public class Msg4Head {
-	// 开发者微信号
+	/** 开发者微信号 */
 	private String toUserName;
-	// 发送方帐号（一个OpenID）
+	/** 发送方帐号（一个OpenID） */
 	private String fromUserName;
-	// 消息创建时间 （整型）
+	/** 消息创建时间 （整型） */
 	private String createTime;
-	// 消息类型：text\image\
+	/** 消息类型：text\image\ */
 	private String msgType;
 	
 
@@ -30,9 +31,14 @@ public class Msg4Head {
 	 * 一般由程序内部调用，开发者不用调用
 	 * */
 	public Msg4Head() { 
-		this.createTime = Session.DATE_FORMAT.format(new Date());//初始化创建时间
+		this.createTime = new SimpleDateFormat("yyyyMMdd").format(new Date()); // 初始化创建时间
 	}
 
+	/**
+	 * 写入数据
+	 * @param root 节点
+	 * @param document 文档
+	 */
 	public void write(Element root, Document document) {
 		Element toUserNameElement = document
 				.createElement(WXXmlElementName.TO_USER_NAME);
@@ -53,6 +59,11 @@ public class Msg4Head {
 		root.appendChild(msgTypeElement);
 	}
 
+
+	/**
+	 * 读取数据
+	 * @param document 文档
+	 */
 	public void read(Document document) {
 		this.toUserName = document
 				.getElementsByTagName(WXXmlElementName.TO_USER_NAME).item(0)
