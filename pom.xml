@@ -6,7 +6,7 @@
 
     <groupId>com.wuweibi</groupId>
     <artifactId>weixinapi</artifactId>
-    <version>1.1-SNAPSHOT</version>
+    <version>0.0.1</version>
 
     <name>${project.groupId}:${project.artifactId}</name>
     <description>weixinapi is wechat Platform sdk</description>
@@ -41,20 +41,20 @@
                 </executions>
             </plugin>
             <!-- Gpg Signature  -->
-            <!--<plugin>-->
-                <!--<groupId>org.apache.maven.plugins</groupId>-->
-                <!--<artifactId>maven-gpg-plugin</artifactId>-->
-                <!--<version>1.6</version>-->
-                <!--<executions>-->
-                    <!--<execution>-->
-                        <!--<id>sign-artifacts</id>-->
-                        <!--<phase>verify</phase>-->
-                        <!--<goals>-->
-                            <!--<goal>sign</goal>-->
-                        <!--</goals>-->
-                    <!--</execution>-->
-                <!--</executions>-->
-            <!--</plugin>-->
+            <plugin>
+                <groupId>org.apache.maven.plugins</groupId>
+                <artifactId>maven-gpg-plugin</artifactId>
+                <version>1.6</version>
+                <executions>
+                    <execution>
+                        <id>sign-artifacts</id>
+                        <phase>verify</phase>
+                        <goals>
+                            <goal>sign</goal>
+                        </goals>
+                    </execution>
+                </executions>
+            </plugin>
 
             <plugin>
                 <artifactId>maven-compiler-plugin</artifactId>
@@ -134,19 +134,19 @@
     </scm>
 
     <!--  发布管理  -->
-    <!--<distributionManagement>-->
-        <!--<snapshotRepository>-->
-            <!--<id>oss</id>-->
-            <!--<url>https://oss.sonatype.org/content/repositories/snapshots/</url>-->
-        <!--</snapshotRepository>-->
-        <!--<repository>-->
-            <!--<id>oss</id>-->
-            <!--<url>https://oss.sonatype.org/service/local/staging/deploy/maven2/</url>-->
-        <!--</repository>-->
-    <!--</distributionManagement>-->
+    <distributionManagement>
+        <snapshotRepository>
+            <id>oss</id>
+            <url>https://oss.sonatype.org/content/repositories/snapshots/</url>
+        </snapshotRepository>
+        <repository>
+            <id>oss</id>
+            <url>https://oss.sonatype.org/service/local/staging/deploy/maven2/</url>
+        </repository>
+    </distributionManagement>
 
 
-
+  <!--
     <distributionManagement>
         <repository>
             <id>releases</id>
@@ -156,6 +156,6 @@
             <id>snapshots</id>
             <url>http://192.168.1.4:8081/repository/maven-snapshots/</url>
         </snapshotRepository>
-    </distributionManagement>
+    </distributionManagement> -->
 
 </project>
