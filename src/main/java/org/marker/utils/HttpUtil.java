@@ -1,9 +1,12 @@
 package org.marker.utils;
 
-import org.marker.weixin.api.AccessTokenApiUtils;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 
+import javax.net.ssl.HttpsURLConnection;
+import javax.net.ssl.SSLContext;
+import javax.net.ssl.TrustManager;
+import javax.net.ssl.X509TrustManager;
 import java.io.BufferedReader;
 import java.io.IOException;
 import java.io.InputStreamReader;
@@ -15,11 +18,6 @@ import java.security.KeyManagementException;
 import java.security.NoSuchAlgorithmException;
 import java.security.cert.CertificateException;
 import java.security.cert.X509Certificate;
-
-import javax.net.ssl.HttpsURLConnection;
-import javax.net.ssl.SSLContext;
-import javax.net.ssl.TrustManager;
-import javax.net.ssl.X509TrustManager;
  
 
 
@@ -76,16 +74,26 @@ public class HttpUtil {
 
 			// 打开连接
 			// 要发送的POST请求url?Key=Value&amp;Key2=Value2&amp;Key3=Value3的形式
-			URL requestUrl = new URL(url);
+			URL requestUrl = new URL(url);  //设置超时时间
 			HttpsURLConnection httpsConn = (HttpsURLConnection) requestUrl
 					.openConnection();
+
+            httpsConn.setConnectTimeout(5000);
+            httpsConn.setReadTimeout(15000);
 
 			// 设置套接工厂
 			httpsConn.setSSLSocketFactory(sslcontext.getSocketFactory());
 
 			// 加入数据
+
+            httpsConn.setRequestProperty("user-agent",
+                    "Mozilla/4.0 (compatible; MSIE 6.0; Windows NT 5.1;SV1)");
 			httpsConn.setRequestMethod("POST");
+            httpsConn.setRequestProperty("accept", "*/*");
+            httpsConn.setRequestProperty("connection", "Keep-Alive");
+			httpsConn.addRequestProperty("Content-Type", "application/json");
 			httpsConn.setDoOutput(true);
+            httpsConn.setDoInput(true);
 			OutputStream out = httpsConn.getOutputStream() ;
 			 
 			if (data != null)

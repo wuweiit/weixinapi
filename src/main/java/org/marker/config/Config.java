@@ -21,6 +21,6 @@ public interface Config {
     /**
      * 修改为开发者申请的secret密钥
      */
-    String SECRET = "ca3ef339ee50485541b63151f0b8848a";
-	
+    String SECRET = "211";
+
 }
